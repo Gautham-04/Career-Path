@@ -227,17 +227,25 @@
 
 <script>
 function showJobOpportunities() {
-      let jobContainer = document.getElementById("jobContainer");
-      jobContainer.style.display = "block";
+  let jobContainer = document.getElementById("jobContainer");
+  jobContainer.style.display = "block";
 
-      let progressBars = document.querySelectorAll(".progress-fill");
-      progressBars.forEach(bar => {
-        let width = bar.getAttribute("data-width");
-        setTimeout(() => {
-          bar.style.width = width;
-        }, 500);
-      });
-    }
+  let progressBars = document.querySelectorAll(".progress-fill");
+
+  // Reset widths to 0 first to allow re-animation
+  progressBars.forEach(bar => {
+    bar.style.width = "0";
+  });
+
+  // Then animate to target width
+  setTimeout(() => {
+    progressBars.forEach(bar => {
+      let width = bar.getAttribute("data-width");
+      bar.style.width = width;
+    });
+  }, 100); // slight delay to allow reset to apply
+}
+
 
 function showEntrepreneurSection() {
   const job = document.getElementById("jobContainer");
