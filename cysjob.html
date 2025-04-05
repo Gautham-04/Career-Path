@@ -231,6 +231,12 @@
 <script>
 function showJobOpportunities() {
   let jobContainer = document.getElementById("jobContainer");
+  let entrepreneurContainer = document.getElementById("entrepreneurContainer");
+
+  // Hide entrepreneur section
+  entrepreneurContainer.style.display = "none";
+
+  // Show job section
   jobContainer.style.display = "block";
 
   let progressBars = document.querySelectorAll(".progress-fill");
@@ -246,8 +252,9 @@ function showJobOpportunities() {
       let width = bar.getAttribute("data-width");
       bar.style.width = width;
     });
-  }, 100); // slight delay to allow reset to apply
+  }, 100);
 }
+
 
 
 function showEntrepreneurSection() {
